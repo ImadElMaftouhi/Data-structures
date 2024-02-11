@@ -143,7 +143,6 @@ int* sllGetAddresses(sll* head) {
     return list;
 }
 
-
 void sllDeleteNode(sll **head, int range){
     if ( *head == NULL){
         printf("\nNUll list!");
@@ -187,7 +186,63 @@ void sllDeleteNode(sll **head, int range){
     free(temp);
 }
 
-// testing
+sll* sllModify(sll **head, int range, float data){
+
+    if ( *head == NULL ) {
+        printf("\nNULL list!");
+        return NULL;
+    }
+
+    sll* ptr = *head;
+    int counter = 0, i = 0;
+
+    while (ptr!=NULL) {
+        ptr = ptr->next;
+        counter++;
+    }
+
+    if ( range <= 0 || range > counter ) {
+        printf("\nInvalid range!");
+        return NULL;
+    }
+
+    ptr = *head;
+
+    while ( i < range - 1) {
+        ptr = ptr->next;
+        i++;
+    }
+
+    ptr->data = data;
+    return ptr;
+}
+
+sll* sllReverse(sll **head) {
+    if ( *head == NULL ) {
+        printf("\nNULL list");
+        return NULL;
+    }
+    if ( (*head)->next == NULL){
+        return *head;
+    }
+
+    sll *prev = NULL;
+    sll *current = *head;
+    sll *next = NULL;
+
+    while (current != NULL) {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+
+    *head = prev;
+
+    return *head;
+}
+
+
 int main (){
 
     sll *head = NULL, *ptr = NULL;
@@ -199,9 +254,12 @@ int main (){
 
     ptr = head;
     while (ptr != NULL){
-        printf("\naddress : %p , value : %f", ptr, ptr->data);
+        printf("\naddress : %p , value : %f\n", ptr, ptr->data);
         ptr = ptr->next;
     }
+
+
+
 
 
 
