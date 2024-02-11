@@ -1,31 +1,139 @@
-    #include "library.h"
+#include "library.h"
 
     #include <stdio.h>
     #include <stdlib.h>
 
 /*
-sllAppendNode (for a singly linked list)
-sllInsertNode
-sllRemoveNode
-sllDeleteNode
-sllTraverseList
-dllAppendNode (for a doubly linked list)
-dllInsertNode
-dllRemoveNode
-dllDeleteNode
-dllTraverseList
+Arrays:
+
+    arrayInsert
+    arrayDelete
+    arrayTraversal
+    arraySearch
+    arraySort
+    arrayMerge
+    arraySplit
+    arrayCopy
+    arrayReverse
+    Linked Lists:
+
+Singly Linked List (SLL):
+
+    sllAppend
+    sllPrepend
+    sllRemove
+    sllDelete
+    sllTraverse
+
+Doubly Linked List (DLL):
+
+    dllAppend
+    dllPrepend
+    dllRemove
+    dllDelete
+    dllTraverse
+
+For Circular Singly Linked Lists (CSLL):
+
+    csllAppend
+    csllPrepend
+    csllRemove
+    csllDelete
+    csllTraverse
+
+For Circular Doubly Linked Lists (CDLL):
+
+    cdllAppend
+    cdllPrepend
+    cdllRemove
+    cdllDelete
+    cdllTraverse
+
+Stacks:
+
+    stackPush
+    stackPop
+    stackPeek
+    stackTraversal
+    isStackEmpty
+    isStackFull
+
+Queues:
+
+    queueEnqueue
+    queueDequeue
+    queueFront
+    queueRear
+    queueTraversal
+    isQueueEmpty
+    isQueueFull
+
+Trees:
+
+    binaryTreeNodeCreate
+    binaryTreeInsert
+    binaryTreeDelete
+    binaryTreeTraverse
+    bstInsert
+    bstDelete
+    bstSearch
+    bstMinValue
+    bstMaxValue
+    avlRotateLeft
+    avlRotateRight
+    avlRotateLeftRight
+    avlRotateRightLeft
+
+Graphs:
+
+    graphNodeCreate
+    graphEdgeInsert
+    graphEdgeDelete
+    graphTraversal
+    graphPathFind
+    isGraphCyclic
+    primMST
+    kruskalMST
+    dijkstraShortestPath
+    bellmanFordShortestPath
+
+Hash Tables:
+
+    hashTableInit
+    hashFunction
+    hashTableInsert
+    hashTableDelete
+    hashTableSearch
+    handleCollision
+    hashTableResize
+    hashTableTraversal
+
+Heaps:
+
+    heapInit
+    heapify
+    heapInsert
+    heapDelete
+    heapExtractMax
+    heapSort
+
+Tries:
+
+    trieNodeCreate
+    trieInsert
+    trieDelete
+    trieSearch
+    triePrefixSearch
+
+Priority Queues:
+
+    priorityQueueInit
+    priorityQueueInsert
+    priorityQueueDelete
+    priorityQueuePeek
+    priorityQueueTraversal
+
  */
-
-
-/**
- * Struct definition for a simple linked list (: sll)
- * data variable can be changed to whatever needed
- */
-typedef struct sll{
-    float data;
-    struct sll *next;
-}sll;
-
 
 
 sll* sllAppend(sll** head, float data){
@@ -143,7 +251,7 @@ int* sllGetAddresses(sll* head) {
     return list;
 }
 
-void sllDeleteNode(sll **head, int range){
+void sllDeleteNode(sll **head, int range) {
     if ( *head == NULL){
         printf("\nNUll list!");
         return;
@@ -186,7 +294,7 @@ void sllDeleteNode(sll **head, int range){
     free(temp);
 }
 
-sll* sllModify(sll **head, int range, float data){
+sll* sllModify(sll **head, int range, float data) {
 
     if ( *head == NULL ) {
         printf("\nNULL list!");
@@ -243,25 +351,3 @@ sll* sllReverse(sll **head) {
 }
 
 
-int main (){
-
-    sll *head = NULL, *ptr = NULL;
-    int i;
-
-    for ( i = 1 ; i <= 10 ; i++){
-        sllAppend(&head, (float)i );
-    }
-
-    ptr = head;
-    while (ptr != NULL){
-        printf("\naddress : %p , value : %f\n", ptr, ptr->data);
-        ptr = ptr->next;
-    }
-
-
-
-
-
-
-    return 0;
-}
