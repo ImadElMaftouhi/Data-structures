@@ -1,7 +1,8 @@
-#include "library.h"
+    #include "library.h"
 
-#include <stdio.h>
-#include <stdlib.h>
+    #include <stdio.h>
+    #include <stdlib.h>
+
 /*
 sllAppendNode (for a singly linked list)
 sllInsertNode
@@ -142,20 +143,65 @@ int* sllGetAddresses(sll* head) {
     return list;
 }
 
+
+void sllDeleteNode(sll **head, int range){
+    if ( *head == NULL){
+        printf("\nNUll list!");
+        return;
+    }
+
+    int counter = 0, i = 0;
+    sll *ptr = *head;
+
+    while( ptr != NULL ){
+        counter++;
+        ptr = ptr->next;
+    }
+
+    if ( range <= 0 || range > counter){
+        printf("\n\nRange is not valid.");
+        return;
+    }
+
+    ptr = *head;
+    if ( range == 1 ){
+        *head = (*head)->next;
+        free(ptr);
+        return;
+    }
+
+    while ( i < range - 2){
+        ptr = ptr->next;
+        i++;
+    }
+
+//    printf("\n\naddress : %p , value : %f", ptr, ptr->data);
+
+    sll *temp = ptr->next;
+    if ( range == counter){
+        ptr->next = NULL;
+    }
+    else {
+        ptr->next = ptr->next->next;
+    }
+    free(temp);
+}
+
+// testing
 int main (){
 
-    sll* head = NULL;
+    sll *head = NULL, *ptr = NULL;
     int i;
+
     for ( i = 1 ; i <= 10 ; i++){
-        sllAppend(&head, (float)i);
+        sllAppend(&head, (float)i );
     }
 
-    for ( i = 10 ; i > 0 ; i--){
-        sllPrepend(&head, (float)i);
+    ptr = head;
+    while (ptr != NULL){
+        printf("\naddress : %p , value : %f", ptr, ptr->data);
+        ptr = ptr->next;
     }
-    sllInsert(&head, 99, 19);
-
-
 
 
 
