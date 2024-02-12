@@ -136,6 +136,8 @@ Priority Queues:
 */
 
 
+/* Simply linked list */
+
 sll* sllAppend(sll** head, float data){
     sll* temp = (sll*)malloc(sizeof(sll));
     if ( temp == NULL ){
@@ -365,4 +367,136 @@ void sllTraverse(sll** head) {
     }
     return;
 }
+
+void sllFreeMemory(sll* head) {
+    if (head == NULL) {
+        return;
+    }
+    sll* ptr = head;
+    sll* ptr2 = NULL;
+    while (ptr != NULL) {
+        ptr2 = ptr;
+        ptr = ptr->next;
+        free(ptr2);
+    }
+}
+
+
+
+/*Doubly linked listed*/
+
+dll* dllPrepend(dll** head,dll** tail, int data){
+	dll* temp = (dll*)malloc(sizeof(dll));
+	
+    if ( temp == NULL) {
+        printf("\nMemory allocation failed for <dll*>temp in function dllPrepend");
+        return NULL; }
+
+	temp->data= data;
+	temp->next = NULL;
+	temp->prev = NULL;
+
+	if ( *head == NULL) {
+        *head = temp; 
+        *tail = temp;
+    }
+	else
+	{
+		(*head)->prev = temp;
+		temp->next = *head;
+		*head = temp;
+	}
+
+    return temp;
+}
+
+dll* dllAppend(dll** head,dll** tail, int valeur){
+	dll* temp = (dll*)malloc(sizeof(dll));
+	
+    if ( temp == NULL){	
+        printf("\nMemory allocation failed for dll* temp in funciton dllApend!");
+        return NULL;
+    }
+	
+    temp->data = valeur;
+	temp->next = NULL;
+
+	if ( *head == NULL)
+	{
+		temp->prev = NULL;
+		*head = temp;
+		*tail = temp;
+	}
+	else
+	{
+		(*tail)->next = temp;
+		temp->prev = *tail;
+		*tail = temp;
+	}
+	
+    
+    return temp;
+}
+
+void dllPrintList(dll* head){
+	if ( head == NULL ) {
+        printf("\n\tNULL LIST!");
+    return;
+    }
+
+	dll* ptr = head;
+	while ( ptr != NULL )
+	{
+		printf("\nAddress %x <=> %p \t Value :%d",ptr ,ptr ,ptr->data);
+		ptr = ptr->next;
+	}
+
+}
+
+// Print the linked list in reverse.
+void dllPrintListReverse(dll* tail){
+	if ( tail == NULL ) {
+        printf("\n\tNULL LIST!");
+        return;
+    }
+
+	dll* ptr = tail;
+	while ( ptr != NULL)
+	{
+		printf("\nAddress %x <=> %p \t Value :%d",ptr ,ptr ,ptr->data);
+		ptr = ptr->prev;
+	}
+}
+
+dll* dllFind(dll** head_dbl, dll** tail, int valeur){
+	if ( *head_dbl == NULL ) {
+        printf("\n\n\t\tNULL LIST!");
+        return NULL;
+    }
+
+	dll* ptr = *head_dbl;
+	dll* ptr2 = *tail;
+
+    // traversing the linked list in two opposite direction to reduce search time
+	while ( ptr != NULL && ptr2 != NULL)
+	{
+		if ( ptr->data == valeur) { return ptr; }
+		if ( ptr2->data == valeur) { return ptr2; }
+		ptr = ptr->next;
+		ptr2 = ptr2->prev;
+	}
+
+	return NULL;
+}
+
+void dllFreeMemory(dll** head){
+	dll* ptr = *head;
+    dll* ptr2 = NULL;
+	while ( ptr != NULL ){
+        ptr2 = ptr;
+		ptr = ptr->next;
+		free(ptr2);
+	}
+}
+
 

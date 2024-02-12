@@ -10,6 +10,14 @@ typedef struct sll{
     struct sll *next;
 }sll;
 
+
+typedef struct dll{
+	int data;
+	struct dll* next;
+	struct dll* prev;
+}dll;
+
+
 sll* sllAppend(sll** head, float data);
 
 sll* sllPrepend(sll** head, float data);
@@ -25,5 +33,14 @@ sll* sllModify(sll **head, int range, float data);
 sll* sllReverse(sll **head);
 
 void sllTraverse(sll **head);
+
+
+
+
+dll* dllPrepend(dll** head,dll** tail, int data);
+
+dll* dllAppend(dll** head,dll** tail, int valeur);
+
+
 
 #endif //DATA_STRUCTURES_LIBRARY_H

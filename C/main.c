@@ -18,7 +18,7 @@ int main() {
 
     //printing the addressese 
     for ( int i = 0 ; i < 10 ; i++) {
-        printf("\nAddress : %x \t Value : %", list[i]);
+        printf("\nAddress : %x ", list[i]);
     }
 
     return 0;
