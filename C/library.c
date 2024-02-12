@@ -531,8 +531,36 @@ sll* StackPush(sll** head, float data){
     }
 
     return temp;
-
 }
 
 
+//function type may varie depending on the problem
+sll* StackPop(sll** head) {
+    
+    if ( *head == NULL ) {
+        printf("\nNULL LIST!");
+        return NULL;
+    }
+
+    sll* temp = (sll*)malloc(sizeof(sll));
+    if ( temp == NULL ) {
+        printf("\nMemory allocation failed for <sll*> temp in Stackpop()!");
+        return;
+    }
+
+    temp->data = (*head)->data;
+    temp->next = (*head)->next;
+
+    sll* ptr = *head;
+    if ( (*head)->next == NULL ) {
+            free(ptr);
+            *head = NULL;
+    }
+    else {
+        *head = (*head)->next;
+        free(ptr);
+    }
+    
+    return temp;
+}
 
