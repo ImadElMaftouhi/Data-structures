@@ -500,3 +500,39 @@ void dllFreeMemory(dll** head){
 }
 
 
+/*Stack
+
+A Stack data structure can be represented using both Simple and double linked list, the appropriate choice depends on the problem.
+
+A Stack data structure respect one fundamental concept, which is that the first element insert into the list is the last item to leave/read/treated, it's FILO ; First In Last Out 
+
+In this example, we'll be using a simple linked list.
+
+*/
+
+sll* StackPush(sll** head, float data){
+    sll* temp = (sll*)malloc(sizeof(sll));
+
+    if ( temp == NULL ) {
+        printf("\nMemory allocation for <sll>temp in StackPush() failed!");
+        return NULL;
+    }
+
+    temp->data = data;
+    temp->next = NULL;
+
+
+    if ( *head == NULL ) {
+        *head = temp;
+    }
+    else {
+        temp->next = *head;
+        *head = temp;
+    }
+
+    return temp;
+
+}
+
+
+
