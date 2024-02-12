@@ -16,12 +16,14 @@ sll* sllPrepend(sll** head, float data);
 
 void sllInsert(sll** head, float data, int range);
 
-int* sllGetAddresses(sll* head);
+int** sllGetAddresses(sll* head);
 
 void sllDeleteNode(sll **head, int range);
 
 sll* sllModify(sll **head, int range, float data);
 
 sll* sllReverse(sll **head);
+
+void sllTraverse(sll **head);
 
 #endif //DATA_STRUCTURES_LIBRARY_H

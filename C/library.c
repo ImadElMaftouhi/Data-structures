@@ -1,7 +1,7 @@
 #include "library.h"
 
-    #include <stdio.h>
-    #include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /*
 Arrays:
@@ -133,7 +133,7 @@ Priority Queues:
     priorityQueuePeek
     priorityQueueTraversal
 
- */
+*/
 
 
 sll* sllAppend(sll** head, float data){
@@ -218,7 +218,7 @@ void sllInsert(sll** head, float data, int range){
     }
 }
 
-int* sllGetAddresses(sll* head) {
+int** sllGetAddresses(sll* head) {
     if (head == NULL) {
         printf("\nNull list!");
         return NULL;
@@ -227,13 +227,15 @@ int* sllGetAddresses(sll* head) {
     // Count the number of nodes
     int counter = 0;
     sll* ptr = head;
+    
+    //counting the number of node in the list
     while (ptr != NULL) {
         counter++;
         ptr = ptr->next;
     }
 
     // Allocate memory for array of pointers
-    int* list = (int*)malloc(counter * sizeof(int));
+    int** list = malloc(counter * sizeof(int*));
     if (list == NULL) {
         printf("Memory allocation failed");
         return NULL;
@@ -243,7 +245,7 @@ int* sllGetAddresses(sll* head) {
     ptr = head;
     counter = 0;
     while (ptr != NULL) {
-        list[counter] = (int)ptr; // Store the address of the current node
+        list[counter] = (int*)ptr;  // Store the address of the current node
         ptr = ptr->next; // Move to the next node
         counter++;
     }
@@ -350,4 +352,17 @@ sll* sllReverse(sll **head) {
     return *head;
 }
 
+void sllTraverse(sll** head) {
+    if ( *head == NULL){
+        printf("\n\tNULL LIST!");
+        return;
+    }
+
+    sll *ptr = *head;
+    while( ptr != NULL ) {
+        printf("\nAddress : %p |\t| data : %f", ptr, ptr->data);
+        ptr = ptr->next;
+    }
+    return;
+}
 
