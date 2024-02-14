@@ -545,7 +545,7 @@ sll* StackPop(sll** head) {
     sll* temp = (sll*)malloc(sizeof(sll));
     if ( temp == NULL ) {
         printf("\nMemory allocation failed for <sll*> temp in Stackpop()!");
-        return;
+        return NULL;
     }
 
     temp->data = (*head)->data;
@@ -563,4 +563,68 @@ sll* StackPop(sll** head) {
     
     return temp;
 }
+
+
+ ///////////////////////////////// QUEUE /////////////////////////////////
+
+/**
+ * Function to add new node to the queue. A queue is a data structure that respect the principal of FIFO ( First In First Out) 
+ * The implemantation in this library uses a simple linked list to link the nodes together
+ *@return : <sll*> temp ; the new node created
+*/
+sll* QueuePush(sll** head, float data) {
+    sll* temp = (sll*)malloc(sizeof(sll));
+
+    if ( temp == NULL ) {
+        printf("\nMemory allocation for <temp> in QueuePop() failed!");
+        return NULL;
+    }
+
+    temp->data = data;
+    temp->next = NULL;
+
+    if ( *head == NULL ) {
+        *head = temp;
+    }
+    else {
+        sll* tail = *head;
+        
+        while ( tail->next != NULL ) {
+            tail = tail->next;
+        }
+
+        tail->next = temp;
+    }
+    return temp;
+}
+
+/**
+ * Function to pop/retrieve/remove the first node, the node it removed from the list. 
+ * @return : <sll*>temp : the first node in the list
+*/
+sll* QueuePop(sll** head) {
+    
+    if ( *head == NULL ) {
+        printf("\nNULL list!");
+        return NULL;
+    }
+    
+    sll* temp = (sll*)malloc(sizeof(sll));
+    
+    if ( temp == NULL ) {
+        printf("\nMemory allocatiol failure in function QueuePop()!");
+        return NULL;
+    }
+    
+    if ( (*head)->next != NULL ){
+        sll* ptr = *head;
+        temp->data = (*head)->data;
+        temp->next = (*head)->next;
+        *head = (*head)->next;
+        free(ptr);
+    }
+
+    return temp;
+}
+
 
