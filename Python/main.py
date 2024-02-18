@@ -64,6 +64,14 @@ class Sll():
         for _ in range(rng - 1):
             ptr = ptr.next
         ptr.next = ptr.next.next
-        #Deleting a node from our list has to do with python automatic garbage collector
+        #Deleting a node from our list has to do with python automatic garbage collec@tor
         #See documentation for more.
-       
+
+
+class dll():
+    list_size = 0
+    def __init__(self, data, next_node = None, prev_node = None):
+        self.next = next_node
+        self.prev = prev_node
+        self.data = data
+        
