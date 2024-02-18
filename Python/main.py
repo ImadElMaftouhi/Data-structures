@@ -67,12 +67,3 @@ class Sll():
         #Deleting a node from our list has to do with python automatic garbage collector
         #See documentation for more.
        
-
-
-
-head = Sll(0)
-for i in range(1,10) :
-    head.sll_append(i)
-
-
-head.sll_delete(3)
