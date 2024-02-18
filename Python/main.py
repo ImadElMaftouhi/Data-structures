@@ -21,18 +21,19 @@ var = [ [1,2], [3,4], [[5,6],[7,8]] ]
 
 ##linked list 
 
-
+#Dont forget to import the necessary libraries to access the functions
 import Dll as dll
 import Sll as sll
 
 dllist = dll.Dll()
+sllist = sll.Sll()
+
 for i in range(5) :
     dllist.dll_append(i)
 
-dllist.dll_print()
-
-sllist = sll.Sll()
 for i in range(5):
     sllist.sll_append(i)
 
 sllist.sll_print()
+dllist.dll_print()
+
