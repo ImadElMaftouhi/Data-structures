@@ -565,7 +565,7 @@ sll* StackPop(sll** head) {
 }
 
 
- ///////////////////////////////// QUEUE /////////////////////////////////
+///////////////////////////////// QUEUE /////////////////////////////////
 
 /**
  * Function to add new node to the queue. A queue is a data structure that respect the principal of FIFO ( First In First Out) 
@@ -625,6 +625,34 @@ sll* QueuePop(sll** head) {
     }
 
     return temp;
+}
+
+/**
+ * Returns True if the queue is empty, and false if not
+*/
+int isEmpty(sll* head) {
+    if ( head == NULL ) {
+        printf("\n The list in empty");
+        return 1;
+    }
+    else {
+        return 0;
+    }
+
+}
+
+/**
+ * function to destroy the Queue and to free the memory
+ * @return : void
+*/
+void destroyQueue(sll** head) {
+    if ( *head == NULL ) {
+        return;
+    }
+    while ( (*head)->next != NULL ) {
+        destroyQueue(&(*head)->next);
+    }
+    free(*head);
 }
 
 
