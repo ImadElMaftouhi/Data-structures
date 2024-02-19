@@ -136,6 +136,22 @@ Priority Queues:
 */
 
 
+
+/**
+ * Returns True if the queue is empty, and false if not
+*/
+int isEmpty(sll* head) {
+    if ( head == NULL ) {
+        printf("\n The list in empty");
+        return 1;
+    }
+    else {
+        return 0;
+    }
+
+}
+
+
 /* Simply linked list */
 
 sll* sllAppend(sll** head, float data){
@@ -533,8 +549,6 @@ sll* StackPush(sll** head, float data){
     return temp;
 }
 
-
-//function type may varie depending on the problem
 sll* StackPop(sll** head) {
     
     if ( *head == NULL ) {
@@ -565,8 +579,9 @@ sll* StackPop(sll** head) {
 }
 
 
-///////////////////////////////// QUEUE /////////////////////////////////
-
+/**Queue
+ * A Queue is data structure that respect the prinicapl of FILO
+*/
 /**
  * Function to add new node to the queue. A queue is a data structure that respect the principal of FIFO ( First In First Out) 
  * The implemantation in this library uses a simple linked list to link the nodes together
@@ -625,20 +640,6 @@ sll* QueuePop(sll** head) {
     }
 
     return temp;
-}
-
-/**
- * Returns True if the queue is empty, and false if not
-*/
-int isEmpty(sll* head) {
-    if ( head == NULL ) {
-        printf("\n The list in empty");
-        return 1;
-    }
-    else {
-        return 0;
-    }
-
 }
 
 /**
