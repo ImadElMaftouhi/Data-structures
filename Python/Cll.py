@@ -28,14 +28,3 @@ class Cll():
         if ( head.next is not self.head and head is not None ) :
             self.cll_print(head.next)
         
-
-
-def main():
-    cllist = Cll()
-    for i in range(1, 10):
-        cllist.cll_append(i)
-    cllist.cll_print(cllist.head)
-    
-    
-if __name__=="__main__":
-    main()
