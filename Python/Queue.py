@@ -107,3 +107,12 @@ class Queue():
             prev = current
             current = next_node
         self.head = prev
+
+    def copy(self):
+        """Creates a shallow copy of the queue."""
+        new_queue = Queue()
+        ptr = self.head
+        while ptr:
+            new_queue.push(ptr.data)
+            ptr = ptr.next
+        return new_queue
