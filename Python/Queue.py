@@ -61,3 +61,13 @@ class Queue():
     
     def is_empty(self):
         return self.size == 0
+    
+    def get(self, index):
+        """Returns the element at the specified index without removing it."""
+        if index < 0 or index >= self.size:
+            return None
+        
+        ptr = self.head
+        for _ in range(index):
+            ptr = ptr.next
+        return ptr.data
