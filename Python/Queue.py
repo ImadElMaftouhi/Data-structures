@@ -71,3 +71,12 @@ class Queue():
         for _ in range(index):
             ptr = ptr.next
         return ptr.data
+    
+    def contain(self, element):
+        """Checks if the queue contains a specific element."""
+        ptr = self.head
+        while ptr:
+            if ptr.data == element:
+                return True
+            ptr = ptr.next
+        return False
