@@ -96,3 +96,14 @@ class Queue():
         """Adds all elements from an iterable to the end of the queue."""
         for element in iterable:
             self.push(element)
+
+    def reverse(self):
+        """Reverses the order of elements in the queue."""
+        prev = None
+        current = self.head
+        while current:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+        self.head = prev
