@@ -34,7 +34,7 @@ class Queue():
         
         ptr = self.head
         
-        for _ in range(index-1): # Iterating over the list i-1 time, we must stop before reaching our node's index.
+        for _ in range(index-2): # Iterating over the list i-1 time, we must stop before reaching our node's index.
             ptr = ptr.next
 
         ptr.next = ptr.next.next
