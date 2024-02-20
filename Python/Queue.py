@@ -91,3 +91,8 @@ class Queue():
             ptr = ptr.next
             index += 1
         return -1
+    
+    def extend(self, iterable):
+        """Adds all elements from an iterable to the end of the queue."""
+        for element in iterable:
+            self.push(element)
