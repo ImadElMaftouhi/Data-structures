@@ -53,4 +53,8 @@ class Queue():
         ptr.next = new_node
         return True
 
-    
+    def peek(self):
+        """Returns the element at the front of the queue without removing it."""
+        if self.head is None:
+            return None
+        return self.head.data
