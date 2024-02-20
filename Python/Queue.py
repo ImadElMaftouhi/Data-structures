@@ -19,6 +19,7 @@ class Queue():
             while ( ptr.next is not None):
                 ptr = ptr.next
             ptr.next = new_node
+        self.size+=1 # Updating list size
         return new_node
     
     def pop(self):
@@ -26,9 +27,6 @@ class Queue():
         self.head = self.head.next # Moving the head to the next node in the list
         return ptr # Returning the data, the order of this function is necessary.
     
-
-    def list_size(self):
-        pass
 
     def delete(self, index):
         pass
