@@ -27,6 +27,8 @@ class Queue():
         return ptr # Returning the data, the order of this function is necessary.
     
 
+    def list_size(self):
+        pass
 
     def delete(self, index):
         pass
