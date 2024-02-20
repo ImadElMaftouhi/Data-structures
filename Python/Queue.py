@@ -27,4 +27,7 @@ class Queue():
         return ptr # Returning the data, the order of this function is necessary.
     
 
+
+    def delete(self, index):
+        pass
     
