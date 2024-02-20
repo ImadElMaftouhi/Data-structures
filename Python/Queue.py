@@ -58,3 +58,6 @@ class Queue():
         if self.head is None:
             return None
         return self.head.data
+    
+    def is_empty(self):
+        return self.size == 0
