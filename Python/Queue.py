@@ -38,5 +38,19 @@ class Queue():
             ptr = ptr.next
 
         ptr.next = ptr.next.next
-        return True        
+        return True   
+
+    def insert(self, index, data):
+        if index < 0 or index > self.size:
+            return False
+        
+        ptr = self.head
+        new_node = sll.SllNode(data)
+
+        for _ in range(index-2):
+            ptr = ptr.next
+        new_node.next = ptr.next
+        ptr.next = new_node
+        return True
+
     
