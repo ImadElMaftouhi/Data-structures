@@ -80,3 +80,14 @@ class Queue():
                 return True
             ptr = ptr.next
         return False
+    
+    def index(self, element):
+        """Returns the index of the first occurrence of the specified element in the queue."""
+        ptr = self.head
+        index = 0
+        while ptr:
+            if ptr.data == element:
+                return index
+            ptr = ptr.next
+            index += 1
+        return -1
