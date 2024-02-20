@@ -28,6 +28,15 @@ class Queue():
         return ptr # Returning the data, the order of this function is necessary.
     
 
-    def delete(self, index):
-        pass
+    def delete(self, index) -> bool:
+        if index < 0 or index > self.size:
+            return False
+        
+        ptr = self.head
+        
+        for _ in range(index-1): # Iterating over the list i-1 time, we must stop before reaching our node's index.
+            ptr = ptr.next
+
+        ptr.next = ptr.next.next
+        return True        
     
