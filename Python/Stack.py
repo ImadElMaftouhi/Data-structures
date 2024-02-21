@@ -9,7 +9,11 @@ class SllNode:
         self.next = next_node
 
 
-
+"""Stack
+A Stack is a data structure that is built on one important principal, that is the first element inserted in the list should be the last item to process/read, we call this FILO principal.
+In this library, the stacks is built on top of the simple linked list, where each node is linked to the next.
+We have also defined a head to represent the first element, aswell as a 'tail' to represent the last item inserted in the list, thus making the insertion and deletion of nodes really simple and fast
+"""
 class STack():
     
     def __init__(self, head=None, tail=None):
@@ -40,4 +44,15 @@ class STack():
             self.tail.next = None
             return temp
     
-    
+    def delete(self) -> bool:
+        if self.head is None or self.tail is None :
+            return False
+        
+        ptr = self.head
+        
+        while ptr.next is not self.tail:
+            ptr = ptr.next
+        
+        ptr.next = None
+        self.tail = ptr
+        return True

@@ -26,7 +26,6 @@ class Queue():
         ptr = self.head
         self.head = self.head.next # Moving the head to the next node in the list
         return ptr # Returning the data, the order of this function is necessary.
-    
 
     def delete(self, index) -> bool:
         if index < 0 or index > self.size:
