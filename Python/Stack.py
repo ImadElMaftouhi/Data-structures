@@ -14,7 +14,7 @@ A Stack is a data structure that is built on one important principal, that is th
 In this library, the stacks is built on top of the simple linked list, where each node is linked to the next.
 We have also defined a head to represent the first element, aswell as a 'tail' to represent the last item inserted in the list, thus making the insertion and deletion of nodes really simple and fast
 """
-class STack():
+class Stack():
     
     def __init__(self, head=None, tail=None):
         self.head = head
@@ -30,6 +30,7 @@ class STack():
         else:
             self.tail.next = new_node
             self.tail = new_node
+        self.size += 1 
         return new_node
     
     def pop(self):
@@ -42,7 +43,8 @@ class STack():
             temp = self.tail # storing the last node to be able to return and not lose any data
             self.tail = ptr
             self.tail.next = None
-            return temp
+        self.size -= 1
+        return temp
     
     def delete(self) -> bool:
         if self.head is None or self.tail is None :
@@ -55,4 +57,30 @@ class STack():
         
         ptr.next = None
         self.tail = ptr
+
+        self.size -= 1
+
         return True
+    
+    def insert(self, data, index) :
+        
+        if index > self.size or index < 0 :
+            return False
+        
+        new_node = SllNode(data)
+        ptr = self.head
+
+        for _ in range(index-2):
+            ptr = ptr.next
+        
+        new_node.next = ptr.next.next
+        ptr.next = new_node
+
+        self.size += 1
+
+    def stack_print(self, head):
+        if head is None:
+            return 
+        self.stack_print(head.next)
+        print(head.data)
+    
