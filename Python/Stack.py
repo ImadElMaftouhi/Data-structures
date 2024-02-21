@@ -46,19 +46,16 @@ class Stack():
         self.size -= 1
         return temp
     
-    def delete(self) -> bool:
+    def delete(self, index) -> bool:
         if self.head is None or self.tail is None :
             return False
         
         ptr = self.head
         
-        while ptr.next is not self.tail:
+        for _ in range(index-2):
             ptr = ptr.next
         
-        ptr.next = None
-        self.tail = ptr
-
-        self.size -= 1
+        ptr.next = ptr.next.next 
 
         return True
     
@@ -83,4 +80,5 @@ class Stack():
             return 
         self.stack_print(head.next)
         print(head.data)
+    
     
