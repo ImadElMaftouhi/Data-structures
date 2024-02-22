@@ -90,4 +90,14 @@ class BinaryTree:
             if node.right:
                 queue.append(node.right)
         return result
+    
+    def height(self):
+        return self._height_recursive(self.root)
+
+    def _height_recursive(self, node):
+        if not node:
+            return 0
+        left_height = self._height_recursive(node.left)
+        right_height = self._height_recursive(node.right)
+        return max(left_height, right_height) + 1
 
