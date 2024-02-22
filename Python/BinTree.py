@@ -64,3 +64,16 @@ class BinaryTree:
             result.append(node.data)
             self._preorder_traversal_recursive(node.left, result)
             self._preorder_traversal_recursive(node.right, result)
+
+
+    def postorder_traversal(self):
+        result = []
+        self._postorder_traversal_recursive(self.root, result)
+        return result
+
+    def _postorder_traversal_recursive(self, node, result):
+        if node:
+            self._postorder_traversal_recursive(node.left, result)
+            self._postorder_traversal_recursive(node.right, result)
+            result.append(node.data)
+
