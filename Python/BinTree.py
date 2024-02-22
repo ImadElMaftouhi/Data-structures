@@ -1,6 +1,6 @@
 ###
 # Defining a library to handle Binary trees in python
-
+import tkinter as tk
 
 class TreeNode:
     def __init__(self, data):
@@ -111,5 +111,46 @@ class BinaryTree:
         if not node:
             return 0
         return 1 + self._size_recursive(node.left) + self._size_recursive(node.right)
+    
+    def _get_tree_height(self, node):
+        if not node:
+            return 0
+        return max(self._get_tree_height(node.left), self._get_tree_height(node.right)) + 1
+
+    def visualize_tree(self):
+        tree_height = self._get_tree_height(self.root)
+        node_width = 50
+        node_height = 30
+        canvas_width = 2 ** (tree_height - 1) * node_width
+        canvas_height = tree_height * node_height
+
+        root = tk.Tk()
+        root.title("Binary Tree Visualization")
+        root.geometry("800x600+0+0")
+        
+        canvas = tk.Canvas(root, width=canvas_width, height=canvas_height)
+        canvas.pack()
+
+        self._visualize_tree_recursive(canvas, self.root, 0, 0, canvas_width, node_width)
+
+        root.mainloop()
+
+    def _visualize_tree_recursive(self, canvas, node, x, y, width, node_width):
+        if node:
+            canvas.create_oval(x, y, x + node_width, y + node_width, fill="white")
+            canvas.create_text(x + node_width / 2, y + node_width / 2, text=str(node.data))
+
+            if node.left:
+                x_left = x - width / 4
+                y_left = y + 2 * node_width
+                canvas.create_line(x + node_width / 2, y + node_width, x_left + node_width / 2, y_left, arrow=tk.LAST)
+                self._visualize_tree_recursive(canvas, node.left, x_left, y_left, width / 2, node_width)
+
+            if node.right:
+                x_right = x + width / 4
+                y_right = y + 2 * node_width
+                canvas.create_line(x + node_width / 2, y + node_width, x_right + node_width / 2, y_right, arrow=tk.LAST)
+                self._visualize_tree_recursive(canvas, node.right, x_right, y_right, width / 2, node_width)
+
 
 
