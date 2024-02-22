@@ -100,4 +100,16 @@ class BinaryTree:
         left_height = self._height_recursive(node.left)
         right_height = self._height_recursive(node.right)
         return max(left_height, right_height) + 1
+    
+    def is_empty(self):
+        return self.root is None
+
+    def size(self):
+        return self._size_recursive(self.root)
+
+    def _size_recursive(self, node):
+        if not node:
+            return 0
+        return 1 + self._size_recursive(node.left) + self._size_recursive(node.right)
+
 
