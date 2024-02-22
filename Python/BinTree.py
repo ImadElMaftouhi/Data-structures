@@ -77,3 +77,17 @@ class BinaryTree:
             self._postorder_traversal_recursive(node.right, result)
             result.append(node.data)
 
+    def levelorder_traversal(self):
+        result = []
+        queue = []
+        if self.root:
+            queue.append(self.root)
+        while queue:
+            node = queue.pop(0)
+            result.append(node.data)
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+        return result
+
