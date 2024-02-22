@@ -29,3 +29,17 @@ class BinaryTree:
                 self._insert_recursive(node.right, data)
             else:
                 node.right = TreeNode(data)
+
+    def search(self, data):
+        return self._search_recursive(self.root, data)
+
+    def _search_recursive(self, node, data):
+        if not node:
+            return False
+        if node.data == data:
+            return True
+        elif data < node.data:
+            return self._search_recursive(node.left, data)
+        else:
+            return self._search_recursive(node.right, data)
+
