@@ -53,3 +53,14 @@ class BinaryTree:
             self._inorder_traversal_recursive(node.left, result)
             result.append(node.data)
             self._inorder_traversal_recursive(node.right, result)
+
+    def preorder_traversal(self):
+        result = []
+        self._preorder_traversal_recursive(self.root, result)
+        return result
+
+    def _preorder_traversal_recursive(self, node, result):
+        if node:
+            result.append(node.data)
+            self._preorder_traversal_recursive(node.left, result)
+            self._preorder_traversal_recursive(node.right, result)
