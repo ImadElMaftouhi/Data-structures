@@ -33,6 +33,19 @@ class Cll:
             ptr = ptr.next
             if ptr is self.head:
                 break
+    
+
+    def findr(self, data ) : 
+        if not self.head:
+            return None
+
+        else:
+            ptr = self.head
+            index = 0
+            ## Continue logic here
+
+
+
 
 # def main():
 #     cllist = Cll()

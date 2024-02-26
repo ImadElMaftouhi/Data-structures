@@ -28,14 +28,24 @@ import Sll as sll
 dllist = dll.Dll()
 sllist = sll.Sll()
 
-for i in range(5) :
-    dllist.dll_append(i)
+# for i in range(5) :
+#     dllist.dll_append(i)
+
+# for i in range(5):
+#     sllist.sll_append(i)
+
+# sllist.sll_print()
+# dllist.dll_print()
+
+
+import Cll as cll
+
+cllist = cll.Cll()
 
 for i in range(5):
-    sllist.sll_append(i)
+    cllist.cll_append(i)
 
-sllist.sll_print()
-dllist.dll_print()
 
+cllist.cll_print()
 
 
