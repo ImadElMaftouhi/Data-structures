@@ -40,12 +40,22 @@ sllist = sll.Sll()
 
 import Cll as cll
 
-cllist = cll.Cll()
+# cllist = cll.Cll()
+
+# for i in range(5):
+#     cllist.cll_append(i)
+
+
+# cllist.cll_print()
+
+
+import BinTree as btree
+
+root = btree.BinaryTree()
+
 
 for i in range(5):
-    cllist.cll_append(i)
+    root.insert(i)
 
-
-cllist.cll_print()
 
 
