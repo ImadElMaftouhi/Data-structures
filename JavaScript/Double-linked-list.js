@@ -54,3 +54,35 @@ class DoublyLinkedList {
         return true;
     }
     }
+
+    removeFrom(index) {
+        if (index < 0 || index >= this.size) {
+          return null;
+        } else {
+          let current, previous;
+          current = this.head;
+          if (index === 0) {
+            this.head = current.next;
+            if (this.head === null) {
+              this.tail = null;
+            } else {
+              this.head.prev = null;
+            }
+          } else if (index === this.size - 1) {
+            current = this.tail;
+            this.tail = current.prev;
+            this.tail.next = null;
+          } else {
+            let i = 0;
+            while (i < index) {
+              i++;
+              previous = current;
+              current = current.next;
+            }
+            previous.next = current.next;
+            current.next.prev = previous;
+          }
+          this.size--;
+          return current.element;
+        }
+    }
