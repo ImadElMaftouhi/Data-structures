@@ -112,3 +112,35 @@ class DoublyLinkedList {
         }
         return null;
       }
+    
+      indexOf(element) {
+        let count = 0;
+        let current = this.head;
+        while (current !== null) {
+          if (current.element === element) {
+            return count;
+          }
+          count++;
+          current = current.next;
+        }
+        return -1;
+      }
+    
+      isEmpty() {
+        return this.size === 0;
+      }
+    
+      size_of_list() {
+        return this.size;
+      }
+    
+      printList() {
+        let current = this.head;
+        let str = "";
+        while (current !== null) {
+          str += current.element + " ";
+          current = current.next;
+        }
+        console.log(str);
+      }
+    }
